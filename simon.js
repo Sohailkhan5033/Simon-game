@@ -12,14 +12,21 @@ let h2=document.querySelector("h2");
 
 h2.innerHTML=`High is is ${high}`;
 
-document.addEventListener('keypress', function(e) {
-    if(start==false)
-    {
-        console.log("Start");
-        start=true;
-        levelup();   
+function startGame() {
+    if (!start) {
+        console.log("Game Started");
+        start = true;
+        levelup();
     }
-});
+}
+
+// For desktop users
+document.addEventListener('keypress', startGame);
+
+// For mobile or any device — tap anywhere on screen
+document.addEventListener('touchstart', startGame);
+document.addEventListener('click', startGame);
+
 
 
 function check(idx){
